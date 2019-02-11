@@ -44,9 +44,9 @@ function theGuess() {
         printLetters();
         printGuesses();
 
-        if (winCounter === 2) {
+        if (winCounter === 1) {
             laugh.play();
-        } else if (winCounter === 5){
+        } else if (winCounter === 3){
             alert("You are the champion!");
         }
     }
@@ -82,7 +82,6 @@ document.onkeyup = function (event) {
     userInput = event.key.toLowerCase();
     lettersGuessed.push(userInput);
     console.log(userInput);
-    console.log(lettersGuessed);
     theGuess();
 }
 
