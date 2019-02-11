@@ -1,0 +1,13 @@
+body {
+    background: url("prism.png");
+    color: #fff;
+}
+
+/* body {
+    background-image: url("prism.png");
+} */
+
+img {
+    height: 400px;
+    width: 400px;
+}

@@ -3,12 +3,13 @@ var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
     "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
     "u", "v", "w", "x", "y", "z"];
 
-var theLetter
+var theLetter;
 var guessesRemaining = 8;
 var winCounter = 0;
 var lossCounter = 0;
 var userInput;
 var lettersGuessed = [];
+var laugh = new Audio(src="assets/audio/evilvillain.wav")
 
 //*****SCREEN UPDATING FUNCTIONS******* */
 function printGuesses() {
@@ -34,56 +35,54 @@ function newLetter() {
 }
 
 function theGuess() {
-    if (userInput == theLetter) {
+    if (userInput === theLetter) {
         winCounter++;
         lettersGuessed.length = 0;
         guessesRemaining = 8;
         newLetter();
-        printWin()
-        printLetters()
-        printGuesses()
+        printWin();
+        printLetters();
+        printGuesses();
 
-    } 
-
-    else if (lettersGuessed.includes(userInput) == true){
-        console.log("That letter has already been guessed.")
-    }
-
-    else {
-        guessesRemaining--;
-        printGuesses()
-        printLetters() 
+        if (winCounter === 2) {
+            laugh.play();
+        } else if (winCounter === 5){
+            alert("You are the champion!");
         }
-    
+    }
+     else {
+        guessesRemaining--;
+        printGuesses();
+        printLetters();
+        }
 
-    if (guessesRemaining == 0) {
+    if (guessesRemaining === 0) {
         lossCounter++;
         lettersGuessed.length = 0;
         guessesRemaining = 8;
         newLetter();
-        printLoss()
-        printGuesses()
-        printLetters()
+        printLoss();
+        printGuesses();
+        printLetters();
     }
 }
 
 function setup() {
-    newLetter()
-    printWin()
-    printGuesses()
-    printLetters()
-    printLoss()
+    newLetter();
+    printWin();
+    printGuesses();
+    printLetters();
+    printLoss();
 }
 
 //*******GAME PROCESS****************************//
-setup()
+setup();
 
 document.onkeyup = function (event) {
     userInput = event.key.toLowerCase();
     lettersGuessed.push(userInput);
-    console.log(userInput)
+    console.log(userInput);
     console.log(lettersGuessed);
     theGuess();
-
 }
 
