@@ -3,6 +3,9 @@ This is my take on a letter guessing game which has been dubbed "The Psychic Gam
 
 My version includes a few small "easter eggs."  I hope you enjoy!
 
+## How to Play
+To play, simply start tapping on any of the alphabet letters on your keyboard.  If you are incorrect, you will lose a guess.   If you are correct your score will iterate up!  
+
 ## Technology Utilized
 This is a simple web application that uses, HTML, CSS, javascript.  
 
