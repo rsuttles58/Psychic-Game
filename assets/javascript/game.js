@@ -1,5 +1,5 @@
 //*************VARIABLES*************/
-var letters = [
+let letters = [
   "a",
   "b",
   "c",
@@ -28,11 +28,11 @@ var letters = [
   "z"
 ];
 
-var theLetter;
-var guessesRemaining = 8;
-var winCounter = 0;
-var lossCounter = 0;
-var lettersGuessed = [];
+let theLetter;
+let guessesRemaining = 8;
+let winCounter = 0;
+let lossCounter = 0;
+let lettersGuessed = [];
 
 //*****DOM UPDATING FUNCTIONS********/
 function printGuesses() {
@@ -85,7 +85,7 @@ function theGuess(userInput) {
 }
 
 function winCheck() {
-  var laugh = new Audio((src = "assets/audio/evilvillain.wav"));
+  const laugh = new Audio((src = "assets/audio/evilvillain.wav"));
 
   if (winCounter === 1) {
     laugh.play();
@@ -106,6 +106,7 @@ function gameCheck() {
     printLetters();
   }
 }
+
 //declare the setup function that invokes the processes that reset the game state.
 function setup() {
   newLetter();
@@ -121,6 +122,6 @@ setup();
 
 //event listener that listens for a key to be released.
 document.onkeyup = function(event) {
-  var userInput = event.key.toLowerCase();
+  let userInput = event.key.toLowerCase();
   theGuess(userInput);
 };
